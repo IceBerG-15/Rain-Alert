@@ -6,7 +6,7 @@ load_dotenv(".\projects\\rain_alert\\.env")
 
 
 #twilio settings
-my_twilio_no=+13087454227
+my_twilio_no=os.getenv('TWILIO_NO')
 
 account_sid=os.getenv('ACCOUNT_SID')
 auth_token=os.getenv('AUTH_TOKEN')
@@ -32,7 +32,7 @@ if will_rain:
             .create(
                     body="Its going to rain today. bring your umbrella ☂️",
                     from_=my_twilio_no,
-                    to='+917478230626'
+                    to=os.getenv('TO_NUMBER')
                 )
 
     print(message.sid)
